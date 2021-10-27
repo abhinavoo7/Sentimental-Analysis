@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Bootstrap/bootstrap.min.css') }}">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
+   
+    <title>Sentiment Analyzer</title>
+  </head>
+  <body>           
+	<div class="main-container ">
+	    <div class="banner">
+	        <div class="row"> 
+	            <div class="col-lg-6 banner-content ">
+	               <img src="/static/Images/Analyzer.jpeg" class="img-fluid" alt="">
+	            </div> 
+	            <div class="col-lg-6 content"><br><br>
+	                <h1>Sentiment Analyzer</h1>  
+	                <h2>Sentiment Analysis </h2>  
+	                <p>A sentiment analysis tool is software that analyzes text conversations and evaluates the tone, intent, and emotion behind each message.<br><br>
+						Upload a text file and analyze the overall sentiment within it.
+					</p>
+	            </div>
+	        </div>    
+	          
+	        <form action="/prediction" method="post" enctype = "multipart/form-data">
+  				<div class="form-group">
+    				<input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+ 			 	</div>
+				<button type="submit" class="btn btn-light">Submit</button>
+			</form>				
+					{% if Sentiment %}
+							<p style="color: whitesmoke; font-family: Verdana; font-size: 25px; text-align: center;">
+								Overall Sentiment is <br>
+								<b> {{Sentiment}}</b>
+								<br> and the detailed count is <br>
+								<b>	{{count}} </b>	
+							</p>	
+														
+					{% endif %}
+			
+				
+			
+		</div> 		
+	</div> 
+	                
+</body>
+</html>
